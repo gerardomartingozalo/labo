@@ -1,0 +1,4 @@
+@EndUserText.label: 'ZCDS_CUSTOM_DETAIL_2411'
+define service ZCDS_CUSTOM_DETAIL_2411 {
+  expose ZCDS_CUSTOM_DETAIL_2411;
+}
