@@ -1,0 +1,99 @@
+@Metadata.layer: #INDUSTRY
+
+@UI: { headerInfo: { typeName: 'Customer',
+                    typeNamePlural: 'Customers',
+                    title: { type: #STANDARD,
+                    value: 'CustomerId' } },
+presentationVariant: [{ sortOrder: [{ by: 'CustomerId',
+                                      direction: #ASC }],
+                                      visualizations: [{ type: #AS_LINEITEM }]
+}] }
+
+annotate entity ZDD_C_CUSTOMER_TRAVEL_2772 with
+{
+
+  @UI.facet: [{ id: 'CustomerDetails',
+                purpose: #STANDARD,
+                type: #IDENTIFICATION_REFERENCE,
+                label: 'Customer Details',
+                position: 10 }]    //position 10 es opcional ya que solo tenemos una pestaña
+
+
+  @UI: {lineItem: [{ position: 10,
+                      importance: #HIGH,
+                      label: 'Customer ID'},
+                   { type: #FOR_ACTION,
+                      dataAction: 'acceptClients',
+                      label: 'Accept Clients',
+                      position: 10},
+                   { type: #FOR_ACTION,
+                      dataAction: 'rejectClients',
+                      label: 'Reject Clients',
+                      position: 20}
+                        ],
+                  selectionField: [{ position: 10 }], //posicion del filtro
+                  identification: [{ position: 10 }, //posicion en vista detalle
+                  //pintamos los mismos botones en la vista detalle
+                  { type: #FOR_ACTION,
+                  dataAction: 'acceptClients',
+                  label: 'Accept Clients',
+                  position: 10},
+                  { type: #FOR_ACTION,
+                  dataAction: 'rejectClients',
+                  label: 'reject clients',
+                  position: 20}],
+                  textArrangement: #TEXT_FIRST } //Texto seguido del codigo de cliente
+                  
+  @Consumption.valueHelpDefinition: [{ entity: { name: '/DMO/I_Customer_StdVH',
+                                       element: 'LastName' }, //Ayuda de Busqueda Asociada
+                                       useForValidation: true }] //validacion de campo
+  CustomerId;
+  @UI: {lineItem: [{ position: 20,
+                      importance: #HIGH,
+                      label: 'Customer Name'}],
+  //selectionField: [{ position: 20 }], //posicion del filtro
+  identification: [{ position: 20 }]} //posicion en el detalle
+
+  CustomerName;
+  @UI: {lineItem: [{ position: 30,
+  importance: #MEDIUM,
+  label: 'Customer Country'}],
+  //selectionField: [{ position: 30 }],   //posicion del filtro
+  identification: [{ position: 30 } ]} //posicion en el detalle
+
+  CustomerCountry;
+  @UI: {lineItem: [{ position: 40,
+  importance: #LOW,
+  label: 'Description'}],
+  //selectionField: [{ position: 40 }],   //posicion del filtro
+  identification: [{ position: 40 } ]}    //posicion en el detalle
+
+
+  @UI.hidden: true
+  Description;
+
+
+  @UI: {lineItem: [{ position: 50,
+  importance: #MEDIUM,
+  label: 'Flight Date'}],
+  identification: [{ position: 50 } ]}
+  FlightDate;
+  
+  @UI: {lineItem: [{ position: 60,
+  importance: #LOW,
+  label: 'Price'}],
+  identification: [{ position: 60 } ]}
+  Price;
+  
+  @UI: {lineItem: [{ position: 70,
+  importance: #LOW,
+  label: 'Currency Code'}],
+  identification: [{ position: 70 } ]}
+  CurrencyCode;
+  
+  @UI: {lineItem: [{ position: 80,
+  importance: #LOW,
+  label: 'Overal Status'}],
+  identification: [{ position: 80 } ]}
+  OverallStatus;
+}

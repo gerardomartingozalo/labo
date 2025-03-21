@@ -1,0 +1,64 @@
+managed implementation in class zbp_dd_r_customer_travel_2772 unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZDD_R_CUSTOMER_TRAVEL_2772 alias CustomerTravel
+persistent table zcustomers_2772
+draft table zcustomers_d_277
+lock master
+total etag LastChangedAt
+etag master LocalLastChangedAt
+authorization master ( global, instance )
+{
+  create;
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) CustomerUuid;
+  field ( mandatory ) CustomerId;
+  field ( readonly ) Description, FlightDate, CurrencyCode, OverallStatus;
+  field ( features : instance ) Price;
+
+  action ( features : instance, authorization : update ) acceptClients
+    parameter ZDD_AE_CUSTOMER_TRAVEL_2772 result [1] $self;
+
+  action ( features : instance, authorization : update ) rejectClients result [1]   $self;
+
+  validation validateCustomer on save { create; field CustomerId; }
+
+  determination setDescription on save { create; }
+
+  determine action validateCustomerFormat { validation validateCustomer; }
+
+  side effects
+  {
+    field CustomerId affects field Description;
+    determine action validateCustomerFormat executed on field CustomerId
+    affects messages;
+  }
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare
+  {
+    validation validateCustomer;
+  }
+
+  mapping for zcustomers_2772
+    {
+      CustomerUuid  = customer_uuid;
+      CustomerId    = customer_id;
+      Description   = description;
+      FlightDate    = flight_date;
+      Price         = price;
+      CurrencyCode  = currency_code;
+      OverallStatus = overall_status;
+      LocalCreatedBy = local_created_by;
+      LocalCreatedAt = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt =  local_last_changed_at;
+      LastChangedAt=  last_changed_at;
+    }
+}
