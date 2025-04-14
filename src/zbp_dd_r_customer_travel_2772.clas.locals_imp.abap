@@ -198,7 +198,6 @@ CLASS lhc_ZDD_R_CUSTOMER_TRAVEL_2772 IMPLEMENTATION.
     RESUlt = VALUE #( FOR ls_Customer_Travel IN lt_root_entity ( %tky = ls_Customer_Travel-%tky
                                                                  %param = ls_Customer_Travel ) ).
 
-
   ENDMETHOD.
 
   METHOD rejectClients.
