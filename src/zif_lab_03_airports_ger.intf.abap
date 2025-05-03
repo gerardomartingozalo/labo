@@ -1,0 +1,7 @@
+INTERFACE zif_lab_03_airports_ger
+  PUBLIC .
+
+METHODS GET_AIRPORTS IMPORTING IV_AIRPORT_ID type STRING
+                     RETURNING VALUE(rv_airport) type /DMO/AIRPORT.
+
+ENDINTERFACE.

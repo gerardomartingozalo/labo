@@ -185,6 +185,8 @@ CLASS lhc_ZDD_R_CUSTOMER_TRAVEL_2772 IMPLEMENTATION.
     UPDATE
     FIELDS ( Price OverallStatus )
     WITH lt_updated_root_entity.
+
+
     FREE lt_root_entity. " Free entries in lt_root_entity
 
 * Read root entity entries updated

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition virtual'
+define service Zsd_flight_discount_GER {
+  expose zcds_virtual_discount_ger;
+  expose zcds_proj_virtual_disc_GER;
+}

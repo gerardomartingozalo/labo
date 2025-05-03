@@ -1,0 +1,6 @@
+INTERFACE zif_lab_04_employee_ger
+  PUBLIC .
+
+METHODS GET_EMPLOYEES_COUNT RETURNING VALUE(Rv_number_employee) type i.
+
+ENDINTERFACE.

@@ -1,0 +1,25 @@
+CLASS zcl_lab_22_student_ger DEFINITION INHERITING FROM zcl_lab_21_classroom_ger
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+  METHODS ASSIGN_STUDENT.
+
+  PROTECTED SECTION.
+
+  PRIVATE SECTION.
+
+ENDCLASS.
+
+
+
+CLASS zcl_lab_22_student_ger IMPLEMENTATION.
+  METHOD assign_student.
+
+  data(lo_clasroom) = NEW ZCL_LAB_21_CLASSROOM_GER(  ).
+
+  ENDMETHOD.
+
+ENDCLASS.

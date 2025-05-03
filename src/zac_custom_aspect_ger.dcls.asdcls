@@ -1,0 +1,8 @@
+@EndUserText.label: '''Access Control - Custom Aspect'''
+@MappingRole: true
+define role zac_custom_aspect_ger {
+        grant select on zcds_negocio_ac_ger
+                            where (CreatedBy, CustomerName) = aspect ZAC_AUDITING_ASPECT_ger and
+                                                                                            InvAmount > 100;
+                        
+}

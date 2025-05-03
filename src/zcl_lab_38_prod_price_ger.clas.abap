@@ -1,0 +1,19 @@
+CLASS zcl_lab_38_prod_price_ger DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+  data PRICE type i.
+
+  PROTECTED SECTION.
+
+
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zcl_lab_38_prod_price_ger IMPLEMENTATION.
+ENDCLASS.

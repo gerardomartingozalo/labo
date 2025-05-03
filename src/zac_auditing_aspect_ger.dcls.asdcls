@@ -1,0 +1,10 @@
+define accesspolicy ZAC_AUDITING_ASPECT_GER {
+    @EndUserText.label: 'Access Control - Auditing Aspect'
+    define aspect ZAC_AUDITING_ASPECT_GER as
+        select from zcds_auditing_aspect_ger with user element CreatedBy
+            {
+                        CreatedBy,
+                        CustomerName
+            }
+            
+}
